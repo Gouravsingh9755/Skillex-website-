@@ -18,9 +18,26 @@ const App = () => {
 	};
 
 
+     const GoBtnHover = useRef()
+     const GoHover = GoBtnHover.current
+     
+   const [hoverValue, sethoverValue] = useState(false)
+
+     const GoEnter = ()=>{
+      sethoverValue(true)
+       console.log(hoverValue);
+     }
+
+     
+     const GoLeave = ()=>{
+      sethoverValue(false)
+      console.log(hoverValue);
+     }
+
+
 	return (
 		<div className="container w-full ">
-			<div className="nav  h-[10vh] w-full  flex items-center justify-around fixed  bg-slate-100  top-0 z-20 ">
+			<div className="nav  h-[20vh] w-full  flex items-center justify-around fixed  bg-slate-100  top-0 z-20 ">
 				<h1 className=" font-serif font-bold text-3xl">Skillex.</h1>
 				<ul className="flex items-center gap-12 text-lg">
 					<li>Find passion</li>
@@ -36,16 +53,12 @@ const App = () => {
 						ref={btnHover}
 						onMouseEnter={onMouseEnterBtn}
 						onMouseLeave={onMousLeaveBtn}
-						className=" relative overflow-hidden nav-button px-9 py-2 rounded-full hover:text-black bg-black text-white text-xl"
+						className=" relative overflow-hidden  nav-button  px-9 py-2 rounded-full  hover:text-black bg-black text-white text-xl"
 					>
-						<h1 className={`z-10 relative transition-all duration-400 ease-in-out`}>Fere</h1>
-						{/* <span
-							ref={btnHover}
-							className="after:block after:absolute after:inset-1 after:bg-red-400  after:h-full after:w-full after:top-[90%] after:left-0"
-						></span> */}
+						<h1 className={`z-10 relative transition-all duration-400 ease-in-out`}>Free Trail</h1>
 						<span
 							ref={btnHover}
-							className={`block absolute inset-1 -z-0 bg-green-300 h-full rounded-full w-full ${
+							className={`block absolute  -z-0 bg-green-300 h-[100%] rounded-full  w-[100%] ${
 								btnOn ? 'top-0' : 'top-[100%]'
 							} transition-all ease-in-out duration-300 left-0`}
 						></span>
@@ -56,7 +69,7 @@ const App = () => {
 			<div className="page1  h-[100vh]  w-full bg-slate-100  ">
 				<div className="maincontent  h-[100vh]  w-full  mt-[20vh]   flex relative">
 					<div className="Left  h-full  w-[35vw] ">
-						<ul className="text-8xl font-medium  flex items-center justify-self-end flex-col  pt-20 ">
+						<ul className="text-8xl font-medium  flex flex-col pl-20 pt-20 ">
 							<li>Watch.</li>
 							<li>Learn.</li>
 							<li>Grow.</li>
@@ -66,11 +79,16 @@ const App = () => {
 							<input
 								type="text"
 								placeholder="Find Your Passion"
-								className="  h-[19vh] w-[23vw] text-center  text-lg  outline-green-300 "
+								className="  h-[20vh] w-[23vw] text-center  text-lg  outline-green-300 "
 							/>
 
-							<button className="h-full w-[10vw] bg-green-200 text-3xl font-medium hover:bg-orange-300 ">
-								GO
+							<button ref={GoBtnHover}
+              onMouseEnter={GoEnter}
+              onMouseLeave={GoLeave} className="h-[20.3vh] w-[10vw] bg-green-200 text-3xl font-medium  relative overflow-hidden ">
+
+								<h1 className='transition-all duration-400 ease-in-out relative  z-10 '>GO</h1>
+                <span className={`absolute h-[100%] w-[100%] bg-orange-300 left-0 ${hoverValue? 'bottom-0' : '-bottom-[100%]'} transition-all duration-500 ease-in-out`} ></span>
+
 							</button>
 						</div>
 					</div>
