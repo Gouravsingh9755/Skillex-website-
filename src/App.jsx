@@ -3,12 +3,12 @@ import React from "react";
 const App = () => {
   return (
     <div className="container w-full ">
-      <div className="page1  h-[120vh]  w-full bg-slate-100  ">
-        <div className="nav  h-[20vh] w-full  flex items-center justify-around ">
-          <h1 className=" font-serif font-bold text-3xl">LOGO</h1>
+
+<div className="nav  h-[20vh] w-full  flex items-center justify-around  bg-slate-100  top-0 z-20 ">
+          <h1 className=" font-serif font-bold text-3xl">Skillex.</h1>
           <ul className="flex items-center gap-12 text-lg">
             <li>Find passion</li>
-            <li>Categories</li>
+            <li><a href="#cat">Categories</a></li>
             <li>Skill</li>
             <li>Customer</li>
           </ul>
@@ -20,7 +20,8 @@ const App = () => {
           </ul>
         </div>
 
-        <div className="maincontent  h-[100vh]  w-full   flex relative">
+      <div className="page1  h-[100vh]  w-full bg-slate-100  ">
+        <div className="maincontent  h-[100vh]  w-full  mt-[20vh]   flex relative">
           <div className="Left  h-full  w-[35vw] ">
             <ul className="text-8xl font-medium  flex items-center justify-self-end flex-col  pt-20 ">
               <li>Watch.</li>
